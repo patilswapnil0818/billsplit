@@ -63,15 +63,15 @@
           </div>
         </div>
       </div>
-      <div class="field hidden">
+      <div class="field ">
         <%= f.label :had_to_give_by_amar %><br>
         <%= f.number_field :had_to_give_by_amar %>
       </div>
-      <div class="field hidden">
+      <div class="field ">
         <%= f.label :had_to_give_by_akbar %><br>
         <%= f.number_field :had_to_give_by_akbar %>
       </div>
-      <div class="field hidden">
+      <div class="field ">
         <%= f.label :had_to_give_by_anthony %><br>
         <%= f.number_field :had_to_give_by_anthony %>
       </div>
@@ -115,23 +115,23 @@
     var x;
     x = $('#bill_total_amount').val();
     if ($('#bill_missing').val() === 'NoOne') {
-    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - x / 3);
-    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - x / 3);
-    return $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - x / 3);
+    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - Math.round(x / 3));
+    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - Math.round(x / 3));
+    return $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - Math.round(x / 3));
     } else {
     if ($('#bill_missing').val() === 'Amar') {
     $('#bill_had_to_give_by_amar').val(0);
-    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - x / 2);
-    $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - x / 2);
+    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - Math.round(x / 2));
+    $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - Math.round(x / 2));
     }
     if ($('#bill_missing').val() === 'Akbar') {
-    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - x / 2);
+    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - Math.round(x / 2));
     $('#bill_had_to_give_by_akbar').val(0);
-    $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - x / 2);
+    $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - Math.round(x / 2));
     }
     if ($('#bill_missing').val() === 'Anthony') {
-    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - x / 2);
-    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - x / 2);
+    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - Math.round(x / 2));
+    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - Math.round(x / 2));
     return $('#bill_had_to_give_by_anthony').val(0);
     }
     }
