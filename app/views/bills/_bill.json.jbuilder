@@ -1,0 +1,2 @@
+json.extract! bill, :id, :event, :date, :location, :total_amount, :by_amar, :by_akbar, :by_anthony, :had_to_give_by_amar, :had_to_give_by_akbar, :had_to_give_by_anthony, :created_at, :updated_at
+json.url bill_url(bill, format: :json)

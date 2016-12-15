@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: MyString
+  date: 2016-12-14
+  location: MyString
+  total_amount: 1
+  by_amar: 1
+  by_akbar: 1
+  by_anthony: 1
+  had_to_give_by_amar: 1
+  had_to_give_by_akbar: 1
+  had_to_give_by_anthony: 1
+
+two:
+  event: MyString
+  date: 2016-12-14
+  location: MyString
+  total_amount: 1
+  by_amar: 1
+  by_akbar: 1
+  by_anthony: 1
+  had_to_give_by_amar: 1
+  had_to_give_by_akbar: 1
+  had_to_give_by_anthony: 1

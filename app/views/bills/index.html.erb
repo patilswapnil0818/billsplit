@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Total amount</th>
+      <th>By amar</th>
+      <th>By akbar</th>
+      <th>By anthony</th>
+      <th>Had to give by amar</th>
+      <th>Had to give by akbar</th>
+      <th>Had to give by anthony</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.event %></td>
+        <td><%= bill.date %></td>
+        <td><%= bill.location %></td>
+        <td><%= bill.total_amount %></td>
+        <td><%= bill.by_amar %></td>
+        <td><%= bill.by_akbar %></td>
+        <td><%= bill.by_anthony %></td>
+        <td><%= bill.had_to_give_by_amar %></td>
+        <td><%= bill.had_to_give_by_akbar %></td>
+        <td><%= bill.had_to_give_by_anthony %></td>
+        <td><%= link_to 'Show', bill %></td>
+        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bill', new_bill_path %>

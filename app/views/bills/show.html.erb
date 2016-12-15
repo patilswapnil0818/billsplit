@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @bill.event %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @bill.date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @bill.location %>
+</p>
+
+<p>
+  <strong>Total amount:</strong>
+  <%= @bill.total_amount %>
+</p>
+
+<p>
+  <strong>By amar:</strong>
+  <%= @bill.by_amar %>
+</p>
+
+<p>
+  <strong>By akbar:</strong>
+  <%= @bill.by_akbar %>
+</p>
+
+<p>
+  <strong>By anthony:</strong>
+  <%= @bill.by_anthony %>
+</p>
+
+<%= link_to 'Edit', edit_bill_path(@bill) %>

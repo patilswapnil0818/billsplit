@@ -1,0 +1,139 @@
+<div class="container bg-image">
+  <%= form_for(@bill) do |f| %>
+    <% if @bill.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+        <ul>
+        <% @bill.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-4">
+        <div class="field">
+          <h6 class="white-font"><%= f.label :event %></h6>
+          <%= f.select :event, options_for_select(['Snacks', 'Lunch', 'Dinner']) %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="field">
+          <h6 class="white-font"><%= f.label :date %></h6>
+          <%= f.date_select :date %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="field">
+          <h6 class="white-font"><%= f.label :missing %></h6>
+          <%= f.select :missing, options_for_select(['NoOne','Amar', 'Akbar', 'Anthony']) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="field">
+          <h6 class="white-font"><%= f.label :location %></h6>
+          <%= f.text_field :location %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="field">
+          <h6 class="white-font"><%= f.label :total_amount %></h6>
+          <%= f.number_field :total_amount %>
+        </div>
+      </div>
+      <div class="col-md-12 grey-bg-color">
+        <h4>Paid By</h4>
+        <div class="col-md-4 padding-0">
+          <div class="field">
+            <%= f.label :by_amar %><br>
+            <%= f.number_field :by_amar %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="field">
+            <%= f.label :by_akbar %><br>
+            <%= f.number_field :by_akbar %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="field">
+            <%= f.label :by_anthony %><br>
+            <%= f.number_field :by_anthony %>
+          </div>
+        </div>
+      </div>
+      <div class="field hidden">
+        <%= f.label :had_to_give_by_amar %><br>
+        <%= f.number_field :had_to_give_by_amar %>
+      </div>
+      <div class="field hidden">
+        <%= f.label :had_to_give_by_akbar %><br>
+        <%= f.number_field :had_to_give_by_akbar %>
+      </div>
+      <div class="field hidden">
+        <%= f.label :had_to_give_by_anthony %><br>
+        <%= f.number_field :had_to_give_by_anthony %>
+      </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 margin-top-100 text-center">
+      <div class="actions" id="submit_bill">
+        <%= f.submit 'Submit'%>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%=javascript_tag do %>
+    $('#bill_missing').click(function() {
+    if ($('#bill_missing').val() === 'NoOne') {
+    $("#bill_by_amar").prop('disabled', false);
+    $("#bill_by_akbar").prop('disabled', false);
+    $("#bill_by_anthony").prop('disabled', false);
+    }
+    if ($('#bill_missing').val() === 'Amar') {
+    $("#bill_by_amar").val(0);
+    $("#bill_by_amar").prop('disabled', true);
+    $("#bill_by_akbar").prop('disabled', false);
+    $("#bill_by_anthony").prop('disabled', false);
+    }
+    if ($('#bill_missing').val() === 'Akbar') {
+    $("#bill_by_akbar").val(0);
+    $("#bill_by_akbar").prop('disabled', true);
+    $("#bill_by_amar").prop('disabled', false);
+    $("#bill_by_anthony").prop('disabled', false);
+    }
+    if ($('#bill_missing').val() === 'Anthony') {
+    $("#bill_by_anthony").val(0);
+    $("#bill_by_anthony").prop('disabled', true);
+    $("#bill_by_amar").prop('disabled', false);
+    return $("#bill_by_akbar").prop('disabled', false);
+    }
+    });
+
+    $('#submit_bill').hover(function() {
+    var x;
+    x = $('#bill_total_amount').val();
+    if ($('#bill_missing').val() === 'NoOne') {
+    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - x / 3);
+    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - x / 3);
+    return $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - x / 3);
+    } else {
+    if ($('#bill_missing').val() === 'Amar') {
+    $('#bill_had_to_give_by_amar').val(0);
+    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - x / 2);
+    $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - x / 2);
+    }
+    if ($('#bill_missing').val() === 'Akbar') {
+    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - x / 2);
+    $('#bill_had_to_give_by_akbar').val(0);
+    $('#bill_had_to_give_by_anthony').val(($('#bill_by_anthony').val()) - x / 2);
+    }
+    if ($('#bill_missing').val() === 'Anthony') {
+    $('#bill_had_to_give_by_amar').val(($('#bill_by_amar').val()) - x / 2);
+    $('#bill_had_to_give_by_akbar').val(($('#bill_by_akbar').val()) - x / 2);
+    return $('#bill_had_to_give_by_anthony').val(0);
+    }
+    }
+    });
+<% end %>

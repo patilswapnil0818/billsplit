@@ -1,0 +1,23 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.container.bg-image {
+  background-image: url('cook-366875_960_720.jpg') !important;
+  height:600px !important;
+}
+
+.float-right {
+  float:right;
+}
+
+.float-left {
+  float:left;
+}
+
+.margin-top-6 {
+  margin-top:3%;
+}
+
+.white-font {
+  color:white;
+}

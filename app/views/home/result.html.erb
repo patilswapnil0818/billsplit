@@ -1,0 +1,17 @@
+<div class="container bg-image">
+  <%= form_tag owe_money_path, :method => :post do %>
+      <div class="col-md-12">
+        <div class="col-md-5">
+          <h2 class="white-font">From</h2>
+          <%= date_field("user", "from", :required => true)%>
+        </div>
+        <div class="col-md-5">
+          <h2 class="white-font">To</h2>
+          <%= date_field("user", "to", :required => true) %>
+        </div>
+        <div class="col-md-2 margin-top-6">
+          <h3><%= submit_tag 'Check'%></h3>
+        </div>
+      </div>
+  <% end %>
+</div>

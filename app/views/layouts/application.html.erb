@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BillSplitting</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="jumbotron padding-0">
+  <a href="/index"><button>Home</button></a>
+  <marquee direction="right"><h4>Bill Splitting</h4></marquee>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
