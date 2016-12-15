@@ -1,29 +1,39 @@
 <div class="container bg-image">
+  <% @result = 0 %>
   <div class="col-md-12">
     <div class="col-md-6 col-md-offset-4">
       <% if @amar < 0 && @akbar >0 && @anthony > 0%>
+        <% @result = 1 %>
         <h2 class='white-font'>Amar has to give <%=@akbar.abs%> rs to Akbar</h2><br>
         <h2 class='white-font'>Amar has to give <%=@anthony.abs%> rs to Anthony</h2><br>
       <%end%>
       <% if @akbar < 0 && @anthony > 0 && @amar > 0%>
+        <% @result = 1 %>
         <h2 class='white-font'>Akbar has to give <%=@amar.abs%> rs to Amar</h2><br>
         <h2 class='white-font'>Akbar has to give <%=@anthony.abs%> rs to Anthony</h2><br>
       <%end%>
       <% if @anthony < 0 && @amar > 0 && @akbar >0%>
+        <% @result = 1 %>
         <h2 class='white-font'>Anthony has to give <%=@amar.abs%> rs to Amar</h2><br>
         <h2 class='white-font'>Anthony has to give <%=@akbar.abs%> rs to Akbar</h2><br>
       <%end%>
       <% if @amar < 0 && @akbar < 0 %>
+        <% @result = 1 %>
         <h2 class='white-font'>Amar has to give <%=@amar.abs%> rs to Anthony</h2><br>
         <h2 class='white-font'>Akbar has to give <%=@akbar.abs%> rs to Anthony</h2><br>
       <%end%>
       <% if @amar < 0 && @anthony < 0 %>
+        <% @result = 1 %>
         <h2 class='white-font'>Amar has to give <%=@amar.abs%> rs to Akbar</h2><br>
         <h2 class='white-font'>Anthony has to give <%=@anthony.abs%> rs to Akbar</h2><br>
       <%end%>
       <% if @anthony < 0 && @akbar < 0 %>
+        <% @result = 1 %>
         <h2 class='white-font'>Anthony has to give <%=@anthony.abs%> rs to Amar</h2><br>
         <h2 class='white-font'>Akbar has to give <%=@akbar.abs%> rs to Amar</h2><br>
+        <%end%>
+      <% if @result == 0 %>
+        <h2 class="white-font">No Results Found</h2>
       <%end%>
     </div>
   </div>
