@@ -31,7 +31,31 @@
         <% @result = 1 %>
         <h2 class='white-font'>Anthony has to give <%=@anthony.abs%> rs to Amar</h2><br>
         <h2 class='white-font'>Akbar has to give <%=@akbar.abs%> rs to Amar</h2><br>
+      <%end%>
+      <% if @amar == 0 %>
+        <% @result = 1 %>
+        <% if @akbar < 0  %>
+          <h2 class='white-font'>Akbar has to give <%=@akbar.abs%> rs to Anthony</h2><br>
+        <% else %>
+          <h2 class='white-font'>Anthony has to give <%=@anthony.abs%> rs to Akbar</h2><br>
         <%end%>
+      <%end%>
+      <% if @akbar == 0 %>
+        <% @result = 1 %>
+        <% if @amar < 0  %>
+          <h2 class='white-font'>Amar has to give <%=@amar.abs%> rs to Anthony</h2><br>
+        <% else %>
+          <h2 class='white-font'>Anthony has to give <%=@anthony.abs%> rs to Amar</h2><br>
+        <%end%>
+      <%end%>
+      <% if @anthony == 0 %>
+          <% @result = 1 %>
+          <% if @amar < 0  %>
+              <h2 class='white-font'>Amar has to give <%=@amar.abs%> rs to Akbar</h2><br>
+          <% else %>
+              <h2 class='white-font'>Anthony has to give <%=@anthony.abs%> rs to Amar</h2><br>
+          <%end%>
+      <%end%>
       <% if @result == 0 %>
         <h2 class="white-font">No Results Found</h2>
       <%end%>
